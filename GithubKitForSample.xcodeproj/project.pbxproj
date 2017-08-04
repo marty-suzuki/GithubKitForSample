@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		37CC40B01F34C2AF0011B065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40AF1F34C2AF0011B065 /* AppDelegate.swift */; };
-		37CC40B21F34C2AF0011B065 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40B11F34C2AF0011B065 /* ViewController.swift */; };
+		37CC40B21F34C2AF0011B065 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40B11F34C2AF0011B065 /* UserViewController.swift */; };
 		37CC40B51F34C2AF0011B065 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40B31F34C2AF0011B065 /* Main.storyboard */; };
 		37CC40B71F34C2AF0011B065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40B61F34C2AF0011B065 /* Assets.xcassets */; };
 		37CC40BA1F34C2AF0011B065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40B81F34C2AF0011B065 /* LaunchScreen.storyboard */; };
@@ -25,6 +25,18 @@
 		37CC411D1F34C71E0011B065 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41131F34C71E0011B065 /* User.swift */; };
 		37CC411E1F34C71E0011B065 /* Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41141F34C71E0011B065 /* Wrappers.swift */; };
 		37CC41211F34C73C0011B065 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CC41201F34C73C0011B065 /* RxSwift.framework */; };
+		37CC41241F34CF020011B065 /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CC41231F34CF020011B065 /* SwiftIconFont.framework */; };
+		37CC41281F34CF7E0011B065 /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41271F34CF7E0011B065 /* Nibable.swift */; };
+		37CC412C1F34CFFA0011B065 /* UITableView.Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC412B1F34CFFA0011B065 /* UITableView.Nibable.swift */; };
+		37CC412F1F34D0AF0011B065 /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC412D1F34D0AF0011B065 /* UserViewCell.swift */; };
+		37CC41301F34D0AF0011B065 /* UserViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CC412E1F34D0AF0011B065 /* UserViewCell.xib */; };
+		37CC41331F34D0BD0011B065 /* RepositoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41311F34D0BD0011B065 /* RepositoryViewCell.swift */; };
+		37CC41341F34D0BD0011B065 /* RepositoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CC41321F34D0BD0011B065 /* RepositoryViewCell.xib */; };
+		37CC41381F34D1470011B065 /* NSObjectProtocol.className.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41371F34D1470011B065 /* NSObjectProtocol.className.swift */; };
+		37CC413A1F34D1830011B065 /* UILabel.Octicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41391F34D1830011B065 /* UILabel.Octicons.swift */; };
+		37CC413C1F34D65B0011B065 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CC413B1F34D65B0011B065 /* Nuke.framework */; };
+		37CC413F1F34D77A0011B065 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC413D1F34D77A0011B065 /* RepositoryViewController.swift */; };
+		37CC41401F34D77A0011B065 /* RepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CC413E1F34D77A0011B065 /* RepositoryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +66,7 @@
 /* Begin PBXFileReference section */
 		37CC40AC1F34C2AF0011B065 /* GithubKitForSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubKitForSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC40AF1F34C2AF0011B065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37CC40B11F34C2AF0011B065 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37CC40B11F34C2AF0011B065 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		37CC40B41F34C2AF0011B065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37CC40B61F34C2AF0011B065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37CC40B91F34C2AF0011B065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +84,18 @@
 		37CC41131F34C71E0011B065 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		37CC41141F34C71E0011B065 /* Wrappers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrappers.swift; sourceTree = "<group>"; };
 		37CC41201F34C73C0011B065 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		37CC41231F34CF020011B065 /* SwiftIconFont.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIconFont.framework; path = Carthage/Build/iOS/SwiftIconFont.framework; sourceTree = "<group>"; };
+		37CC41271F34CF7E0011B065 /* Nibable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nibable.swift; sourceTree = "<group>"; };
+		37CC412B1F34CFFA0011B065 /* UITableView.Nibable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.Nibable.swift; sourceTree = "<group>"; };
+		37CC412D1F34D0AF0011B065 /* UserViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
+		37CC412E1F34D0AF0011B065 /* UserViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewCell.xib; sourceTree = "<group>"; };
+		37CC41311F34D0BD0011B065 /* RepositoryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewCell.swift; sourceTree = "<group>"; };
+		37CC41321F34D0BD0011B065 /* RepositoryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewCell.xib; sourceTree = "<group>"; };
+		37CC41371F34D1470011B065 /* NSObjectProtocol.className.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectProtocol.className.swift; sourceTree = "<group>"; };
+		37CC41391F34D1830011B065 /* UILabel.Octicons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.Octicons.swift; sourceTree = "<group>"; };
+		37CC413B1F34D65B0011B065 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		37CC413D1F34D77A0011B065 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
+		37CC413E1F34D77A0011B065 /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CC413C1F34D65B0011B065 /* Nuke.framework in Frameworks */,
+				37CC41241F34CF020011B065 /* SwiftIconFont.framework in Frameworks */,
 				37CC41211F34C73C0011B065 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,8 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				37CC40AF1F34C2AF0011B065 /* AppDelegate.swift */,
-				37CC40B11F34C2AF0011B065 /* ViewController.swift */,
 				37CC40B31F34C2AF0011B065 /* Main.storyboard */,
+				37CC40B11F34C2AF0011B065 /* UserViewController.swift */,
+				37CC413D1F34D77A0011B065 /* RepositoryViewController.swift */,
+				37CC413E1F34D77A0011B065 /* RepositoryViewController.xib */,
 				37CC40B61F34C2AF0011B065 /* Assets.xcassets */,
 				37CC40B81F34C2AF0011B065 /* LaunchScreen.storyboard */,
 				37CC40BB1F34C2AF0011B065 /* Info.plist */,
@@ -139,6 +167,8 @@
 		37CC41071F34C7090011B065 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				37CC41361F34D1320011B065 /* Common */,
+				37CC41251F34CF200011B065 /* UI */,
 				37CC41091F34C71E0011B065 /* Core */,
 			);
 			path = Sources;
@@ -187,9 +217,41 @@
 		37CC411F1F34C73C0011B065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37CC413B1F34D65B0011B065 /* Nuke.framework */,
+				37CC41231F34CF020011B065 /* SwiftIconFont.framework */,
 				37CC41201F34C73C0011B065 /* RxSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37CC41251F34CF200011B065 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				37CC41261F34CF350011B065 /* Extension */,
+				37CC412D1F34D0AF0011B065 /* UserViewCell.swift */,
+				37CC412E1F34D0AF0011B065 /* UserViewCell.xib */,
+				37CC41311F34D0BD0011B065 /* RepositoryViewCell.swift */,
+				37CC41321F34D0BD0011B065 /* RepositoryViewCell.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		37CC41261F34CF350011B065 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				37CC41271F34CF7E0011B065 /* Nibable.swift */,
+				37CC412B1F34CFFA0011B065 /* UITableView.Nibable.swift */,
+				37CC41391F34D1830011B065 /* UILabel.Octicons.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		37CC41361F34D1320011B065 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				37CC41371F34D1470011B065 /* NSObjectProtocol.className.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CC41401F34D77A0011B065 /* RepositoryViewController.xib in Resources */,
 				37CC40BA1F34C2AF0011B065 /* LaunchScreen.storyboard in Resources */,
 				37CC40B71F34C2AF0011B065 /* Assets.xcassets in Resources */,
 				37CC40B51F34C2AF0011B065 /* Main.storyboard in Resources */,
@@ -298,6 +361,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CC41341F34D0BD0011B065 /* RepositoryViewCell.xib in Resources */,
+				37CC41301F34D0AF0011B065 /* UserViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +376,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftIconFont.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
 			);
 			outputPaths = (
 			);
@@ -325,7 +392,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37CC40B21F34C2AF0011B065 /* ViewController.swift in Sources */,
+				37CC40B21F34C2AF0011B065 /* UserViewController.swift in Sources */,
+				37CC413F1F34D77A0011B065 /* RepositoryViewController.swift in Sources */,
 				37CC40B01F34C2AF0011B065 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,12 +404,18 @@
 			files = (
 				37CC41161F34C71E0011B065 /* ApiSession.swift in Sources */,
 				37CC41171F34C71E0011B065 /* Request.swift in Sources */,
+				37CC413A1F34D1830011B065 /* UILabel.Octicons.swift in Sources */,
 				37CC411A1F34C71E0011B065 /* PageInfo.swift in Sources */,
 				37CC41191F34C71E0011B065 /* UserNodeRequest.swift in Sources */,
+				37CC412C1F34CFFA0011B065 /* UITableView.Nibable.swift in Sources */,
 				37CC411D1F34C71E0011B065 /* User.swift in Sources */,
+				37CC412F1F34D0AF0011B065 /* UserViewCell.swift in Sources */,
 				37CC41181F34C71E0011B065 /* SearchUserRequest.swift in Sources */,
+				37CC41381F34D1470011B065 /* NSObjectProtocol.className.swift in Sources */,
 				37CC411B1F34C71E0011B065 /* Repository.swift in Sources */,
+				37CC41281F34CF7E0011B065 /* Nibable.swift in Sources */,
 				37CC411C1F34C71E0011B065 /* Response.swift in Sources */,
+				37CC41331F34D0BD0011B065 /* RepositoryViewCell.swift in Sources */,
 				37CC411E1F34C71E0011B065 /* Wrappers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
