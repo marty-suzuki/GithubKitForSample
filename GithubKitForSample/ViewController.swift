@@ -7,19 +7,31 @@
 //
 
 import UIKit
+import GithubKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let request = SearchUserRequest(query: "marty-suzuki", after: nil)
+        _ = ApiSession.shared.send(request) {
+            switch $0 {
+            case .success(let value):
+                guard let user = value.nodes.first else { return }
+                let request = UserNodeRequest(id: user.id, after: nil)
+                _ = ApiSession.shared.send(request) {
+                    switch $0 {
+                    case .success(let value):
+                        print(value)
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
-
