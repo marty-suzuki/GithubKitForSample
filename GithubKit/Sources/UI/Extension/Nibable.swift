@@ -16,7 +16,7 @@ public protocol Nibable: NSObjectProtocol {
 
 extension Nibable {
     public static var nib: UINib {
-        return UINib(nibName: className, bundle: nil)
+        return UINib(nibName: className, bundle: Bundle(for: Self.self))
     }
     public static var reuseIdentifier: String {
         return className

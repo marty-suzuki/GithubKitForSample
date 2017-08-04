@@ -17,6 +17,8 @@ public struct User: JsonDecodable {
     public let repositoryCount: Int
     public let url: URL
     public let websiteURL: URL?
+    public let location: String?
+    public let bio: String?
 
     public init(json: [AnyHashable: Any]) throws {
         guard let id = json["id"] as? String else {
@@ -35,5 +37,7 @@ public struct User: JsonDecodable {
         self.url = try URLWrapper(forKey: "url", json: json).value
         
         self.websiteURL = (json["websiteUrl"] as? String).flatMap(URL.init)
+        self.location = json["location"] as? String
+        self.bio = json["bio"] as? String
     }
 }

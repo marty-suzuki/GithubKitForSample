@@ -37,6 +37,7 @@
 		37CC413C1F34D65B0011B065 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CC413B1F34D65B0011B065 /* Nuke.framework */; };
 		37CC413F1F34D77A0011B065 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC413D1F34D77A0011B065 /* RepositoryViewController.swift */; };
 		37CC41401F34D77A0011B065 /* RepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CC413E1F34D77A0011B065 /* RepositoryViewController.xib */; };
+		37CC41421F34EF030011B065 /* Int.truncateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41411F34EF030011B065 /* Int.truncateString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		37CC413B1F34D65B0011B065 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		37CC413D1F34D77A0011B065 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		37CC413E1F34D77A0011B065 /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
+		37CC41411F34EF030011B065 /* Int.truncateString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.truncateString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 				37CC41271F34CF7E0011B065 /* Nibable.swift */,
 				37CC412B1F34CFFA0011B065 /* UITableView.Nibable.swift */,
 				37CC41391F34D1830011B065 /* UILabel.Octicons.swift */,
+				37CC41411F34EF030011B065 /* Int.truncateString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				37CC411D1F34C71E0011B065 /* User.swift in Sources */,
 				37CC412F1F34D0AF0011B065 /* UserViewCell.swift in Sources */,
 				37CC41181F34C71E0011B065 /* SearchUserRequest.swift in Sources */,
+				37CC41421F34EF030011B065 /* Int.truncateString.swift in Sources */,
 				37CC41381F34D1470011B065 /* NSObjectProtocol.className.swift in Sources */,
 				37CC411B1F34C71E0011B065 /* Repository.swift in Sources */,
 				37CC41281F34CF7E0011B065 /* Nibable.swift in Sources */,

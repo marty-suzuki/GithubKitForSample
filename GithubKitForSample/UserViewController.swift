@@ -27,7 +27,9 @@ final class UserViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        ApiSession.shared.token = "/** Your token **/"
+        automaticallyAdjustsScrollViewInsets = false
+        
+        ApiSession.shared.token = "Your token"
         
         let request = SearchUserRequest(query: "marty-", after: nil)
         _ = ApiSession.shared.send(request) { [weak self] in

@@ -21,7 +21,7 @@ public struct SearchUserRequest: Request {
         } else {
             afterString = ""
         }
-        return "{ \"query\": \"{ search(query: \\\"\(query)\\\", type: USER, first: \(limit)\(afterString)) { pageInfo { hasNextPage hasPreviousPage endCursor startCursor } userCount nodes { ...on User { id avatarUrl login url websiteUrl followers { totalCount } repositories { totalCount } following { totalCount } } } } }\" }"
+        return "{ \"query\": \"{ search(query: \\\"\(query)\\\", type: USER, first: \(limit)\(afterString)) { pageInfo { hasNextPage hasPreviousPage endCursor startCursor } userCount nodes { ...on User { id bio location avatarUrl login url websiteUrl followers { totalCount } repositories { totalCount } following { totalCount } } } } }\" }"
     }
 
     public let query: String
