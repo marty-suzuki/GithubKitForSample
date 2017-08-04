@@ -86,10 +86,6 @@ public final class UserViewCell: UITableViewCell, Nibable {
         return locationContentView
     }()
     
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     public override func prepareForReuse() {
         super.prepareForReuse()
         Manager.shared.cancelRequest(for: thumbnailImageView)

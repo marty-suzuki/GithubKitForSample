@@ -22,7 +22,7 @@ public struct UserNodeRequest: Request {
         } else {
             afterString = ""
         }
-        return "{ \"query\": \"{ node(id: \\\"\(id)\\\") { ... on User { repositories(first: \(limit), orderBy: { field: STARGAZERS, direction: DESC }\(afterString)) { totalCount nodes { ... on Repository { name description url languages(first: 1, orderBy: { field: SIZE, direction: DESC }) { nodes { name } } stargazers { totalCount } forks { totalCount } } } pageInfo { endCursor hasNextPage hasPreviousPage startCursor } } } } }\" }"
+        return "{ \"query\": \"{ node(id: \\\"\(id)\\\") { ... on User { repositories(first: \(limit), orderBy: { field: STARGAZERS, direction: DESC }\(afterString)) { totalCount nodes { ... on Repository { name description url updatedAt languages(first: 1, orderBy: { field: SIZE, direction: DESC }) { nodes { name color } } stargazers { totalCount } forks { totalCount } } } pageInfo { endCursor hasNextPage hasPreviousPage startCursor } } } } }\" }"
     }
     
     public let after: String?

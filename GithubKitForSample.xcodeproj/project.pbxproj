@@ -38,6 +38,8 @@
 		37CC413F1F34D77A0011B065 /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC413D1F34D77A0011B065 /* RepositoryViewController.swift */; };
 		37CC41401F34D77A0011B065 /* RepositoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37CC413E1F34D77A0011B065 /* RepositoryViewController.xib */; };
 		37CC41421F34EF030011B065 /* Int.truncateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41411F34EF030011B065 /* Int.truncateString.swift */; };
+		37CC41441F34F3770011B065 /* DateFormatter.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41431F34F3770011B065 /* DateFormatter.extension.swift */; };
+		37CC41461F34FA110011B065 /* UIColor.hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC41451F34FA110011B065 /* UIColor.hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		37CC413D1F34D77A0011B065 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		37CC413E1F34D77A0011B065 /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
 		37CC41411F34EF030011B065 /* Int.truncateString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.truncateString.swift; sourceTree = "<group>"; };
+		37CC41431F34F3770011B065 /* DateFormatter.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.extension.swift; sourceTree = "<group>"; };
+		37CC41451F34FA110011B065 /* UIColor.hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.hex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +249,7 @@
 				37CC412B1F34CFFA0011B065 /* UITableView.Nibable.swift */,
 				37CC41391F34D1830011B065 /* UILabel.Octicons.swift */,
 				37CC41411F34EF030011B065 /* Int.truncateString.swift */,
+				37CC41451F34FA110011B065 /* UIColor.hex.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				37CC41371F34D1470011B065 /* NSObjectProtocol.className.swift */,
+				37CC41431F34F3770011B065 /* DateFormatter.extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -405,9 +411,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CC41461F34FA110011B065 /* UIColor.hex.swift in Sources */,
 				37CC41161F34C71E0011B065 /* ApiSession.swift in Sources */,
 				37CC41171F34C71E0011B065 /* Request.swift in Sources */,
 				37CC413A1F34D1830011B065 /* UILabel.Octicons.swift in Sources */,
+				37CC41441F34F3770011B065 /* DateFormatter.extension.swift in Sources */,
 				37CC411A1F34C71E0011B065 /* PageInfo.swift in Sources */,
 				37CC41191F34C71E0011B065 /* UserNodeRequest.swift in Sources */,
 				37CC412C1F34CFFA0011B065 /* UITableView.Nibable.swift in Sources */,
