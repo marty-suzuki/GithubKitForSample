@@ -35,7 +35,7 @@ public struct Response<T: JsonDecodable> {
         guard let rawNodes = innerJson["nodes"] as? [[AnyHashable: Any]] else {
             throw JsonDecodeError.parseError(object: innerJson, key: "nodes", expectedType: [[AnyHashable: Any]].self)
         }
-        self.nodes = try rawNodes.flatMap(T.init)
+        self.nodes = rawNodes.flatMap { try? T(json: $0) }
         guard let rawPageInfo = innerJson["pageInfo"] as? [AnyHashable: Any] else {
             throw JsonDecodeError.parseError(object: innerJson, key: "pageInfo", expectedType: [AnyHashable: Any].self)
         }
