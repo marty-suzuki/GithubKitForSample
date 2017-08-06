@@ -31,7 +31,7 @@ final class UserViewController: UIViewController {
         
         ApiSession.shared.token = "Your token"
         
-        let request = SearchUserRequest(query: "marty-", after: nil)
+        let request = SearchUserRequest(query: "marty", after: nil, limit: 50)
         _ = ApiSession.shared.send(request) { [weak self] in
             switch $0 {
             case .success(let value):

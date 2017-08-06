@@ -98,8 +98,8 @@ public final class UserViewCell: UITableViewCell, Nibable {
         repositoryCountLabel.text = user.repositoryCount.truncateString
         followingCountLabel.text = user.followingCount.truncateString
         followerCountLabel.text = user.followerCount.truncateString
-        
-        if user.location == nil {
+
+        if user.location?.isEmpty ?? true {
             if stackView.arrangedSubviews.contains(locationContentView) {
                 stackView.removeArrangedSubview(locationContentView)
             }
@@ -109,7 +109,7 @@ public final class UserViewCell: UITableViewCell, Nibable {
         }
         locationLabel.text = user.location
         
-        if user.bio == nil {
+        if user.bio?.isEmpty ?? true {
             if stackView.arrangedSubviews.contains(bioLabel) {
                 stackView.removeArrangedSubview(bioLabel)
             }

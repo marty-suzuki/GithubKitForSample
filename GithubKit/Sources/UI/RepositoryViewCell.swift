@@ -71,7 +71,7 @@ public final class RepositoryViewCell: UITableViewCell, Nibable {
         starCountLabel.text = repository.stargazerCount.truncateString
         forkCountLabel.text = repository.forkCount.truncateString
         
-        if repository.introduction == nil {
+        if repository.introduction?.isEmpty ?? true {
             if stackView.arrangedSubviews.contains(descriptionLabel) {
                 stackView.removeArrangedSubview(descriptionLabel)
             }
