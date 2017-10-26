@@ -24,7 +24,7 @@ public struct Response<T: JsonDecodable> {
 
     init(forKeys keys: [String], totalCountKey: String, json: [AnyHashable: Any]) throws {
         guard let dataJson = json["data"] as? [AnyHashable: Any] else {
-            throw JsonDecodeError.parseError(object: json, key: "data", expectedType: [[AnyHashable: Any]].self)
+            throw JsonDecodeError.parseError(object: json, key: "data", expectedType: [AnyHashable: Any].self)
         }
         let innerJson = try keys.reduce(dataJson) { result, key in
             guard let dict = result[key] as? [AnyHashable : Any] else {
