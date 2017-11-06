@@ -33,10 +33,12 @@ public protocol Request {
 
     var method: HttpMethod { get }
     var graphQLQuery: String { get }
+
+    static func decode(with data: Data) throws -> Response<ResponseType>
 }
 
 extension Request {
-    static func decode(with data: Data) throws -> Response<ResponseType> {
+    public static func decode(with data: Data) throws -> Response<ResponseType> {
         let object = try JSONSerialization.jsonObject(with: data, options: [])
         guard let json = object as? [AnyHashable: Any] else {
             throw JsonDecodeError.castError(object: object, expectedType: [AnyHashable: Any].self)
@@ -49,11 +51,12 @@ extension Request {
     }
 
     public var baseURL: URL {
-        return URL(string: "https://api.github.com/graphql")!
+        fatalError("must use RequestProxy")
     }
 
     public var allHTTPHeaderFields: [String : String]? {
-        guard let token = RequestConfig.shared.token else { return nil }
-        return ["Authorization" : "bearer \(token)"]
+        return nil
     }
 }
+
+
