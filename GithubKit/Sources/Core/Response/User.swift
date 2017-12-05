@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct User: JsonDecodable {
+public struct User {
     public let id: String
     public let avatarURL: URL
     public let followerCount: Int
@@ -19,25 +19,34 @@ public struct User: JsonDecodable {
     public let websiteURL: URL?
     public let location: String?
     public let bio: String?
+}
 
-    public init(json: [AnyHashable: Any]) throws {
-        guard let id = json["id"] as? String else {
-            throw JsonDecodeError.parseError(object: json, key: "id", expectedType: String.self)
-        }
-        self.id = id
-
-        self.avatarURL = try URLWrapper(forKey: "avatarUrl", json: json).value
-        self.followerCount = try TotalCountWrapper(forKey: "followers", json: json).value
-        self.followingCount = try TotalCountWrapper(forKey: "following", json: json).value
-        self.repositoryCount = try TotalCountWrapper(forKey: "repositories", json: json).value
-        guard let login = json["login"] as? String else {
-            throw JsonDecodeError.parseError(object: json, key: "login", expectedType: String.self)
-        }
-        self.login = login
-        self.url = try URLWrapper(forKey: "url", json: json).value
-        
-        self.websiteURL = (json["websiteUrl"] as? String).flatMap(URL.init)
-        self.location = json["location"] as? String
-        self.bio = json["bio"] as? String
+extension User: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case avatarURL = "avatarUrl"
+        case followerCount = "followers"
+        case followingCount = "following"
+        case repositoryCount = "repositories"
+        case login
+        case url
+        case websiteURL = "websiteUrl"
+        case location
+        case bio
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.avatarURL = try container.decode(URL.self, forKey: .avatarURL)
+        self.followerCount = try container.decode(TotalCountWrapper.self, forKey: .followerCount).value
+        self.followingCount = try container.decode(TotalCountWrapper.self, forKey: .followingCount).value
+        self.repositoryCount = try container.decode(TotalCountWrapper.self, forKey: .repositoryCount).value
+        self.login = try container.decode(String.self, forKey: .login)
+        self.url = try container.decode(URL.self, forKey: .url)
+        let rawWebsiteURL = try container.decodeIfPresent(String.self, forKey: .websiteURL)
+        self.websiteURL = rawWebsiteURL.flatMap { $0.isEmpty ? nil : URL(string: $0) }
+        self.location = try container.decodeIfPresent(String.self, forKey: .location)
+        self.bio = try container.decodeIfPresent(String.self, forKey: .bio)
     }
 }

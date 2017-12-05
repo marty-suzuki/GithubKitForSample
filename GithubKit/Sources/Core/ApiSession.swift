@@ -17,30 +17,36 @@ public final class ApiSession {
 
     public enum Error: Swift.Error {
         case emptyData
+        case emptyToken
+        case generateBaseURLFaild
     }
-
-    public static let shared = ApiSession()
 
     private let session: URLSession
     private let configuration: URLSessionConfiguration
-    
-    public var token: String? {
-        set { RequestConfig.shared.token = newValue }
-        get { return RequestConfig.shared.token }
-    }
+    private let injectToken: () -> InjectableToken
 
-    public init(configuration: URLSessionConfiguration = .default) {
+    public init(injectToken: @escaping () -> InjectableToken,
+                configuration: URLSessionConfiguration = .default) {
         configuration.timeoutIntervalForRequest = 30
         self.configuration = configuration
         self.session = URLSession(configuration: configuration)
+        self.injectToken = injectToken
     }
 
     public func send<T: Request>(_ request: T, completion: @escaping (Result<Response<T.ResponseType>>) -> ()) -> URLSessionTask {
-        var urlRequest = URLRequest(url: request.baseURL)
-        urlRequest.httpMethod = request.method.value
-        urlRequest.allHTTPHeaderFields = request.allHTTPHeaderFields
-        urlRequest.httpBody = request.graphQLQuery.data(using: .utf8)
 
+        let injectableToken: InjectableToken_<Ready>
+        let injectableBaseURL: InjectableBaseURL
+        do {
+            injectableToken = try injectToken().readify()
+            injectableBaseURL = try InjectableBaseURL(string: "https://api.github.com/graphql")
+        } catch let e {
+            completion(.failure(e))
+            return URLSessionTask()
+        }
+
+        let proxy = RequestProxy(request: request, injectableBaseURL: injectableBaseURL, injectableToken: injectableToken)
+        let urlRequest = proxy.buildURLRequest()
         let task = session.dataTask(with: urlRequest) { data, _, error in
             if let error = error {
                 completion(.failure(error))

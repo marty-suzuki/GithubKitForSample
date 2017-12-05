@@ -8,24 +8,26 @@
 
 import Foundation
 
-public struct PageInfo: JsonDecodable {
+public struct PageInfo {
     public let hasNextPage: Bool
     public let endCursor: String?
     public let hasPreviousPage: Bool
     public let startCursor: String?
+}
+
+extension PageInfo: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case hasNextPage
+        case endCursor
+        case hasPreviousPage
+        case startCursor
+    }
     
-    public init(json: [AnyHashable : Any]) throws {
-        guard let hasNextPage = json["hasNextPage"] as? Bool else {
-            throw JsonDecodeError.parseError(object: json, key: "hasNextPage", expectedType: Bool.self)
-        }
-        self.hasNextPage = hasNextPage
-        
-        guard let hasPreviousPage = json["hasPreviousPage"] as? Bool else {
-            throw JsonDecodeError.parseError(object: json, key: "hasPreviousPage", expectedType: Bool.self)
-        }
-        self.hasPreviousPage = hasPreviousPage
-        
-        self.startCursor = json["startCursor"] as? String
-        self.endCursor = json["endCursor"] as? String
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.hasNextPage = try container.decode(Bool.self, forKey: .hasNextPage)
+        self.endCursor = try container.decodeIfPresent(String.self, forKey: .endCursor)
+        self.hasPreviousPage = try container.decode(Bool.self, forKey: .hasPreviousPage)
+        self.startCursor = try container.decodeIfPresent(String.self, forKey: .startCursor)
     }
 }

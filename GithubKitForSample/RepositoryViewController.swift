@@ -8,6 +8,7 @@
 
 import UIKit
 import GithubKit
+import SafariServices
 
 final class RepositoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -23,7 +24,7 @@ final class RepositoryViewController: UIViewController {
     
     init(user: User) {
         self.user = user
-        super.init(nibName: RepositoryViewController.className, bundle: nil)
+        super.init(nibName: String(describing: RepositoryViewController.self), bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +34,7 @@ final class RepositoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.registerCell(RepositoryViewCell.self)
+        tableView.register(RepositoryViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -55,7 +56,7 @@ extension RepositoryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(RepositoryViewCell.self, for: indexPath)
+        let cell = tableView.dequeue(RepositoryViewCell.self, for: indexPath)
         cell.configure(with: repositories[indexPath.row])
         return cell
     }
@@ -64,5 +65,11 @@ extension RepositoryViewController: UITableViewDataSource {
 extension RepositoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return RepositoryViewCell.calculateHeight(with: repositories[indexPath.row], and: tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let vc = SFSafariViewController(url: repositories[indexPath.row].url)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

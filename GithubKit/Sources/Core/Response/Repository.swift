@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Repository: JsonDecodable {
+public struct Repository {
     public struct Language {
         let name: String
         let color: String
@@ -21,36 +21,45 @@ public struct Repository: JsonDecodable {
     public let forkCount: Int
     public let url: URL
     public let updatedAt: Date
+}
+
+extension Repository.Language: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case color
+    }
     
-    public init(json: [AnyHashable : Any]) throws {
-        guard let name = json["name"] as? String else {
-            throw JsonDecodeError.parseError(object: json, key: "name", expectedType: String.self)
-        }
-        self.name = name
-        
-        if
-            let languages = json["languages"] as? [AnyHashable: Any],
-            let nodes = languages["nodes"] as? [[AnyHashable: Any]],
-            let name = nodes.first?["name"] as? String,
-            let color = nodes.first?["color"] as? String
-        {
-            self.language = Language(name: name, color: color)
-        } else {
-            self.language = nil
-        }
-        
-        self.stargazerCount = try TotalCountWrapper(forKey: "stargazers", json: json).value
-        self.forkCount = try TotalCountWrapper(forKey: "forks", json: json).value
-        self.url = try URLWrapper(forKey: "url", json: json).value
-        
-        self.introduction = json["description"] as? String
-        
-        guard let rawUpdatedAt = json["updatedAt"] as? String else {
-            throw JsonDecodeError.parseError(object: json, key: "updatedAt", expectedType: String.self)
-        }
-        guard let updatedAt = DateFormatter.ISO8601.date(from: rawUpdatedAt) else {
-            throw JsonDecodeError.parseError(object: json, key: "updatedAt", expectedType: Date.self)
-        }
-        self.updatedAt = updatedAt
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.color = try container.decode(String.self, forKey: .color)
+    }
+}
+
+extension Repository: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case introduction = "description"
+        case language = "languages"
+        case stargazerCount = "stargazers"
+        case forkCount = "forks"
+        case url
+        case updatedAt
+    }
+
+    private enum LanguagesCodingKeys: String, CodingKey {
+        case nodes
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.introduction = try container.decodeIfPresent(String.self, forKey: .introduction)
+        self.stargazerCount = try container.decode(TotalCountWrapper.self, forKey: .stargazerCount).value
+        self.forkCount = try container.decode(TotalCountWrapper.self, forKey: .forkCount).value
+        self.url = try container.decode(URL.self, forKey: .url)
+        let languages = try container.nestedContainer(keyedBy: LanguagesCodingKeys.self, forKey: .language)
+        self.language = try languages.decode([Language].self, forKey: .nodes).first
+        self.updatedAt = try container.decode(ISO8601DateWrapper.self, forKey: .updatedAt).value
     }
 }
