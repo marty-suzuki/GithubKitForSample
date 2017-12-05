@@ -1,6 +1,6 @@
 # GithubKitForSample
 
-This is simple Github API client and UI for using in sample projects.
+This is a simple Github API client and UI to use in sample projects.
 
 ## Requirements
 
