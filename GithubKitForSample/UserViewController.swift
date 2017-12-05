@@ -23,7 +23,7 @@ final class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerCell(UserViewCell.self)
+        tableView.register(UserViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -47,7 +47,7 @@ extension UserViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(UserViewCell.self, for: indexPath)
+        let cell = tableView.dequeue(UserViewCell.self, for: indexPath)
         cell.configure(with: users[indexPath.row])
         return cell
     }

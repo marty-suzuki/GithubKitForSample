@@ -109,13 +109,10 @@ function checkPlistVersions() {
 		PODSPEC_VERSION=`cat $project.podspec | grep -E "s.version\s+=" | cut -d '"' -f 2`
 		ensureVersionEqual "$RXSWIFT_VERSION" "$PODSPEC_VERSION" "${project} version not equal"
 		PLIST_VERSION=`defaults read  "\`pwd\`/${project}/Info.plist" CFBundleShortVersionString`
-		if [[ "${PLIST_VERSION}" != "${RXSWIFT_VERSION}" ]]; then
+		if [[ ${RXSWIFT_VERSION} = *"-"* && "${PLIST_VERSION}-"* == "${RXSWIFT_VERSION}" ]] || [[ ! ${RXSWIFT_VERSION} == *"-"* &&  "${PLIST_VERSION}" == "${RXSWIFT_VERSION}" ]]; then
 			echo "Invalid version for `pwd`/${project}/Info.plist: ${PLIST_VERSION}"
-			defaults write  "`pwd`/${project}/Info.plist" CFBundleShortVersionString $RXSWIFT_VERSION
 		fi
 	done
-
-	ensureNoGitChanges "Plist versions aren't correct"
 }
 
 ensureNoGitChanges "Please make sure the working tree is clean. Use \`git status\` to check."
@@ -166,17 +163,13 @@ if [ "${VALIDATE_IOS_EXAMPLE}" -eq 1 ]; then
 				rx "RxExample-iOSTests" ${configuration} "${DEFAULT_IOS_SIMULATOR}" test
 			done
 		else
-			echo "Ok for now";
-			# Temporarily disabled because xcodebuild hangs on  -showBuildSettings -skipUnavailableActions
-			# and Carthage is calling xcodebuild with those commands
-			#
-			# for scheme in "RxExample-iOS"
-			# do
-			# 	for configuration in "Debug"
-			# 	do
-			# 		rx ${scheme} ${configuration} "${DEFAULT_IOS_SIMULATOR}" build
-			# 	done
-			# done
+			for scheme in "RxExample-iOS"
+			do
+				for configuration in "Debug"
+				do
+					rx ${scheme} ${configuration} "${DEFAULT_IOS_SIMULATOR}" build
+				done
+			done
 		fi
 	elif [[ "${UNIX_NAME}" == "${LINUX}" ]]; then
 		unsupported_target

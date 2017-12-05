@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA223AA91F160FAC005915D0 /* SwiftIconFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA223AA81F160FAC005915D0 /* SwiftIconFontView.swift */; };
+		DA639C421F62B959004810A6 /* SwiftIconStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA639C411F62B959004810A6 /* SwiftIconStepper.swift */; };
 		DA8D9D151D345A3800F5E693 /* SwiftIconFont.h in Headers */ = {isa = PBXBuildFile; fileRef = DA8D9D141D345A3800F5E693 /* SwiftIconFont.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA8D9D1C1D345A3800F5E693 /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA8D9D111D345A3800F5E693 /* SwiftIconFont.framework */; };
 		DA8D9D211D345A3800F5E693 /* SwiftIconFontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D201D345A3800F5E693 /* SwiftIconFontTests.swift */; };
@@ -25,7 +26,7 @@
 		DA8D9D4E1D345A4900F5E693 /* MapIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D3F1D345A4900F5E693 /* MapIcon.swift */; };
 		DA8D9D4F1D345A4900F5E693 /* MaterialIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D401D345A4900F5E693 /* MaterialIcon.swift */; };
 		DA8D9D501D345A4900F5E693 /* Octicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D411D345A4900F5E693 /* Octicon.swift */; };
-		DA8D9D511D345A4900F5E693 /* SwiftBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D421D345A4900F5E693 /* SwiftBarButtonItem.swift */; };
+		DA8D9D511D345A4900F5E693 /* SwiftIconBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D421D345A4900F5E693 /* SwiftIconBarButtonItem.swift */; };
 		DA8D9D521D345A4900F5E693 /* SwiftIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D431D345A4900F5E693 /* SwiftIconButton.swift */; };
 		DA8D9D531D345A4900F5E693 /* SwiftIconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D441D345A4900F5E693 /* SwiftIconFont.swift */; };
 		DA8D9D541D345A4900F5E693 /* SwiftIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8D9D451D345A4900F5E693 /* SwiftIconLabel.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		DA223AA81F160FAC005915D0 /* SwiftIconFontView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftIconFontView.swift; sourceTree = "<group>"; };
+		DA639C411F62B959004810A6 /* SwiftIconStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftIconStepper.swift; sourceTree = "<group>"; };
 		DA8D9D111D345A3800F5E693 /* SwiftIconFont.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftIconFont.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8D9D141D345A3800F5E693 /* SwiftIconFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftIconFont.h; sourceTree = "<group>"; };
 		DA8D9D161D345A3800F5E693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		DA8D9D3F1D345A4900F5E693 /* MapIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapIcon.swift; sourceTree = "<group>"; };
 		DA8D9D401D345A4900F5E693 /* MaterialIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialIcon.swift; sourceTree = "<group>"; };
 		DA8D9D411D345A4900F5E693 /* Octicon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Octicon.swift; sourceTree = "<group>"; };
-		DA8D9D421D345A4900F5E693 /* SwiftBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBarButtonItem.swift; sourceTree = "<group>"; };
+		DA8D9D421D345A4900F5E693 /* SwiftIconBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftIconBarButtonItem.swift; sourceTree = "<group>"; };
 		DA8D9D431D345A4900F5E693 /* SwiftIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftIconButton.swift; sourceTree = "<group>"; };
 		DA8D9D441D345A4900F5E693 /* SwiftIconFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftIconFont.swift; sourceTree = "<group>"; };
 		DA8D9D451D345A4900F5E693 /* SwiftIconLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftIconLabel.swift; sourceTree = "<group>"; };
@@ -158,7 +160,7 @@
 				DA8D9D3F1D345A4900F5E693 /* MapIcon.swift */,
 				DA8D9D401D345A4900F5E693 /* MaterialIcon.swift */,
 				DA8D9D411D345A4900F5E693 /* Octicon.swift */,
-				DA8D9D421D345A4900F5E693 /* SwiftBarButtonItem.swift */,
+				DA8D9D421D345A4900F5E693 /* SwiftIconBarButtonItem.swift */,
 				DA8D9D431D345A4900F5E693 /* SwiftIconButton.swift */,
 				DA8D9D441D345A4900F5E693 /* SwiftIconFont.swift */,
 				DA8D9D451D345A4900F5E693 /* SwiftIconLabel.swift */,
@@ -167,6 +169,7 @@
 				DA8D9D481D345A4900F5E693 /* SwiftIconTextView.swift */,
 				DA8D9D491D345A4900F5E693 /* ThemifyIcon.swift */,
 				DA223AA81F160FAC005915D0 /* SwiftIconFontView.swift */,
+				DA639C411F62B959004810A6 /* SwiftIconStepper.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -289,10 +292,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8D9D541D345A4900F5E693 /* SwiftIconLabel.swift in Sources */,
-				DA8D9D511D345A4900F5E693 /* SwiftBarButtonItem.swift in Sources */,
+				DA8D9D511D345A4900F5E693 /* SwiftIconBarButtonItem.swift in Sources */,
 				DA8D9D4C1D345A4900F5E693 /* Iconic.swift in Sources */,
 				DA8D9D4A1D345A4900F5E693 /* FontAwesome.swift in Sources */,
 				DA8D9D531D345A4900F5E693 /* SwiftIconFont.swift in Sources */,
+				DA639C421F62B959004810A6 /* SwiftIconStepper.swift in Sources */,
 				DA8D9D581D345A4900F5E693 /* ThemifyIcon.swift in Sources */,
 				DA8D9D551D345A4900F5E693 /* SwiftIconTabBarItem.swift in Sources */,
 				DA8D9D561D345A4900F5E693 /* SwiftIconTextField.swift in Sources */,
@@ -369,6 +373,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -410,6 +415,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -431,7 +437,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tr.sdev.SwiftIconFont;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -449,7 +455,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tr.sdev.SwiftIconFont;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

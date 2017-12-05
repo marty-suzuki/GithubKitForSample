@@ -10,6 +10,8 @@ import UIKit
 import Nuke
 
 public final class UserViewCell: UITableViewCell, Nibable {
+    public typealias RegisterType = RegisterNib
+    
     private static let shared = UserViewCell.makeFromNib()
     private static let minimumHeight: CGFloat = 88
 

@@ -89,7 +89,7 @@ func packageRelativePath(_ paths: [String], targetDirName: String, excluded: [St
 
     print("Checking " + targetPath)
 
-    for file in try fileManager.contentsOfDirectory(atPath: targetPath)  {
+    for file in try fileManager.contentsOfDirectory(atPath: targetPath).sorted { $0 < $1 }  {
         if file != "include" && file != ".DS_Store" {
             print("Checking extension \(file)")
             try checkExtension(file)
@@ -146,7 +146,7 @@ func buildAllTestsTarget(_ testsPath: String) throws {
 
     var reducedMethods: [String: [String]] = [:]
 
-    for file in try fileManager.contentsOfDirectory(atPath: testsPath) {
+    for file in try fileManager.contentsOfDirectory(atPath: testsPath).sorted { $0 < $1 } {
         if !file.hasSuffix(".swift") || file == "main.swift" {
             continue
         }
@@ -277,6 +277,7 @@ try packageRelativePath(["RxSwift"], targetDirName: "RxSwift")
 
 try packageRelativePath([
     "RxCocoa/RxCocoa.swift",
+    "RxCocoa/Deprecated.swift",
     "RxCocoa/Traits",
     "RxCocoa/Common",
     "RxCocoa/Foundation",
@@ -307,13 +308,20 @@ try packageRelativePath([
         "Tests/XCTest+AllTests.swift",
         "Platform",
         "Tests/RxCocoaTests/Driver+Test.swift",
-        "Tests/RxCocoaTests/Driver+Extensions.swift",
+        "Tests/RxCocoaTests/Signal+Test.swift",
+        "Tests/RxCocoaTests/SharedSequence+Extensions.swift",
+        "Tests/RxCocoaTests/SharedSequence+Test.swift",
+        "Tests/RxCocoaTests/SharedSequence+OperatorTest.swift",
         "Tests/RxCocoaTests/NotificationCenterTests.swift",
     ],
     targetDirName: "AllTestz",
     excluded: [
         "Tests/VirtualSchedulerTest.swift",
         "Tests/HistoricalSchedulerTest.swift",
+        // @testable import doesn't work well in Linux :/
+        "QueueTests.swift",
+        // @testable import doesn't work well in Linux :/
+        "SubjectConcurrencyTest.swift",
         // @testable import doesn't work well in Linux :/
         "BagTest.swift"
     ])

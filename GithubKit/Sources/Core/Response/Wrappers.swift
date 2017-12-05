@@ -8,26 +8,34 @@
 
 import Foundation
 
-struct URLWrapper {
-    let value: URL
+func _valueNotFound<T>(codingPath: [CodingKey], debugDescription: String) throws -> T {
+    let context = DecodingError.Context(codingPath: codingPath, debugDescription: debugDescription)
+    throw DecodingError.valueNotFound(T.self, context)
+}
 
-    init(forKey key: String, json: [AnyHashable: Any]) throws {
-        guard let value = (json[key] as? String).flatMap(URL.init) else {
-            throw JsonDecodeError.parseError(object: json, key: key, expectedType: URL.self)
-        }
-        self.value = value
+struct ISO8601DateWrapper {
+    let value: Date
+}
+
+extension ISO8601DateWrapper: Decodable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        self.value = try DateFormatter.ISO8601.date(from: container.decode(String.self))
+            ?? _valueNotFound(codingPath: [], debugDescription: "can not convert to Date")
     }
 }
 
 struct TotalCountWrapper {
     let value: Int
+}
 
-    init(forKey key: String, json: [AnyHashable: Any]) throws {
-        guard
-            let value = (json[key] as? [AnyHashable: Any]).flatMap({ $0["totalCount"] as? Int })
-        else {
-            throw JsonDecodeError.parseError(object: json, key: key, expectedType: Int.self)
-        }
-        self.value = value
+extension TotalCountWrapper: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case totalCount
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.value = try container.decode(Int.self, forKey: .totalCount)
     }
 }

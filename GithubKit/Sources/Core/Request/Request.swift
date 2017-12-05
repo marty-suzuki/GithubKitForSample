@@ -24,9 +24,7 @@ final class RequestConfig {
 }
 
 public protocol Request {
-    associatedtype ResponseType: JsonDecodable
-    static var keys: [String] { get }
-    static var totalCountKey: String { get }
+    associatedtype ResponseType: Decodable
 
     var baseURL: URL { get }
     var allHTTPHeaderFields: [String : String]? { get }
@@ -38,13 +36,13 @@ public protocol Request {
 }
 
 extension Request {
-    public static func decode(with data: Data) throws -> Response<ResponseType> {
-        let object = try JSONSerialization.jsonObject(with: data, options: [])
-        guard let json = object as? [AnyHashable: Any] else {
-            throw JsonDecodeError.castError(object: object, expectedType: [AnyHashable: Any].self)
-        }
-        return try .init(forKeys: keys, totalCountKey: totalCountKey, json: json)
-    }
+//    public static func decode(with data: Data) throws -> Response<ResponseType> {
+//        let object = try JSONSerialization.jsonObject(with: data, options: [])
+//        guard let json = object as? [AnyHashable: Any] else {
+//            throw JsonDecodeError.castError(object: object, expectedType: [AnyHashable: Any].self)
+//        }
+//        return try .init(forKeys: keys, totalCountKey: totalCountKey, json: json)
+//    }
     
     public var method: HttpMethod {
         return .post

@@ -9,11 +9,6 @@
 import Foundation
 
 public struct SearchUserRequest: Request {
-    public typealias ResponseType = User
-    
-    public static let keys = ["search"]
-    public static var totalCountKey = "userCount"
-
     public var graphQLQuery: String {
         let afterString: String
         if let after = after {
@@ -32,5 +27,10 @@ public struct SearchUserRequest: Request {
         self.query = query
         self.limit = limit
         self.after = after
+    }
+    
+    public static func decode(with data: Data) throws -> Response<User> {
+        let res = try JSONDecoder().decode(UserResponse.self, from: data)
+        return Response(nodes: res.nodes, pageInfo: res.pageInfo, totalCount: res.totalCount)
     }
 }

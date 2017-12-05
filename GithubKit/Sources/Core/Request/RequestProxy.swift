@@ -31,15 +31,7 @@ public struct RequestProxy<T: Request>: Request {
 
 extension RequestProxy {
     public typealias ResponseType = T.ResponseType
-
-    public static var keys: [String] {
-        return T.keys
-    }
-
-    public static var totalCountKey: String {
-        return T.totalCountKey
-    }
-
+    
     public var method: HttpMethod {
         return request.method
     }

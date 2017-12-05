@@ -9,6 +9,8 @@
 import UIKit
 
 public final class RepositoryViewCell: UITableViewCell, Nibable {
+    public typealias RegisterType = RegisterNib
+    
     private static let shared = RepositoryViewCell.makeFromNib()
     private static let minimumHeight: CGFloat = 88
     
