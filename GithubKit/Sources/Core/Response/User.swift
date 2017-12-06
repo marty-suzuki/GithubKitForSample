@@ -21,7 +21,7 @@ public struct User {
     public let bio: String?
 }
 
-extension User: Decodable {
+extension User: JSONDecodable {
     private enum CodingKeys: String, CodingKey {
         case id
         case avatarURL = "avatarUrl"
@@ -48,5 +48,26 @@ extension User: Decodable {
         self.websiteURL = rawWebsiteURL.flatMap { $0.isEmpty ? nil : URL(string: $0) }
         self.location = try container.decodeIfPresent(String.self, forKey: .location)
         self.bio = try container.decodeIfPresent(String.self, forKey: .bio)
+    }
+}
+
+extension User {
+    public enum ResponseDecoder: ResponseDecoderProtocol {
+        public static let totalCount = TotalCountCodingKey("userCount")
+
+        private enum DataCodingKeys: String, CodingKey {
+            case data
+        }
+
+        private enum SearchCodingKeys: String, CodingKey {
+            case search
+        }
+
+        public static func containers(from decoder: Swift.Decoder) throws -> (common: CommonContainer, count: CountContainer) {
+            let data = try decoder.container(keyedBy: DataCodingKeys.self)
+            let search = try data.nestedContainer(keyedBy: SearchCodingKeys.self, forKey: .data)
+            return try (search.nestedContainer(keyedBy: ResponseCodingKeys.self, forKey: .search),
+                        search.nestedContainer(keyedBy: TotalCountCodingKey.self, forKey: .search))
+        }
     }
 }

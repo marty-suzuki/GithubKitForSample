@@ -9,6 +9,8 @@
 import Foundation
 
 public struct UserNodeRequest: Request {
+    public typealias ResponseType = Response<Repository>
+
     public var graphQLQuery: String {
         let afterString: String
         if let after = after {
@@ -27,10 +29,5 @@ public struct UserNodeRequest: Request {
         self.id = id
         self.limit = limit
         self.after = after
-    }
-    
-    public static func decode(with data: Data) throws -> Response<Repository> {
-        let res = try JSONDecoder().decode(RepositoryResponse.self, from: data)
-        return Response(nodes: res.nodes, pageInfo: res.pageInfo, totalCount: res.totalCount)
     }
 }

@@ -46,7 +46,7 @@ extension RequestProxy {
         return headerFields
     }
 
-    public static func decode(with data: Data) throws -> Response<ResponseType> {
+    public static func decode(with data: Data) throws -> ResponseType {
         return try T.decode(with: data)
     }
 }

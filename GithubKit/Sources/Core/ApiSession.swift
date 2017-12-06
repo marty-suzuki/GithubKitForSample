@@ -33,7 +33,7 @@ public final class ApiSession {
         self.injectToken = injectToken
     }
 
-    public func send<T: Request>(_ request: T, completion: @escaping (Result<Response<T.ResponseType>>) -> ()) -> URLSessionTask {
+    public func send<T: Request>(_ request: T, completion: @escaping (Result<T.ResponseType>) -> ()) -> URLSessionTask {
 
         let injectableToken: InjectableToken_<Ready>
         let injectableBaseURL: InjectableBaseURL
@@ -70,8 +70,8 @@ public final class ApiSession {
 extension ApiSession: ReactiveCompatible {}
 
 extension Reactive where Base == ApiSession {
-    public func send<T: Request>(_ request: T) -> Observable<Response<T.ResponseType>> {
-        return Single<Response<T.ResponseType>>.create { [weak session = base] observer in
+    public func send<T: Request>(_ request: T) -> Observable<T.ResponseType> {
+        return Single<T.ResponseType>.create { [weak session = base] observer in
             guard let session = session else {
                 return Disposables.create()
             }
