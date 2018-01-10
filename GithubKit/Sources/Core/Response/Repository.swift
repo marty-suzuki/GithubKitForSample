@@ -36,7 +36,7 @@ extension Repository.Language: Decodable {
     }
 }
 
-extension Repository: Decodable {
+extension Repository: JSONDecodable {
     private enum CodingKeys: String, CodingKey {
         case name
         case introduction = "description"
@@ -61,5 +61,31 @@ extension Repository: Decodable {
         let languages = try container.nestedContainer(keyedBy: LanguagesCodingKeys.self, forKey: .language)
         self.language = try languages.decode([Language].self, forKey: .nodes).first
         self.updatedAt = try container.decode(ISO8601DateWrapper.self, forKey: .updatedAt).value
+    }
+}
+
+extension Repository {
+    public enum ResponseDecoder: ResponseDecoderProtocol {
+        public static let totalCount = TotalCountCodingKey("totalCount")
+
+        private enum DataCodingKeys: String, CodingKey {
+            case data
+        }
+
+        private enum NodeCodingKeys: String, CodingKey {
+            case node
+        }
+
+        private enum RepositoriesCodingKeys: String, CodingKey {
+            case repositories
+        }
+
+        public static func containers(from decoder: Decoder) throws -> (common: CommonContainer, count: CountContainer) {
+            let data = try decoder.container(keyedBy: DataCodingKeys.self)
+            let node = try data.nestedContainer(keyedBy: NodeCodingKeys.self, forKey: .data)
+            let repositories = try node.nestedContainer(keyedBy: RepositoriesCodingKeys.self, forKey: .node)
+            return try (repositories.nestedContainer(keyedBy: ResponseCodingKeys.self, forKey: .repositories),
+                        repositories.nestedContainer(keyedBy: TotalCountCodingKey.self, forKey: .repositories))
+        }
     }
 }

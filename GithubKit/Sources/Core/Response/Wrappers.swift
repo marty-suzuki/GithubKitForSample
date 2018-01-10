@@ -17,7 +17,7 @@ struct ISO8601DateWrapper {
     let value: Date
 }
 
-extension ISO8601DateWrapper: Decodable {
+extension ISO8601DateWrapper: Swift.Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         self.value = try DateFormatter.ISO8601.date(from: container.decode(String.self))
@@ -29,7 +29,7 @@ struct TotalCountWrapper {
     let value: Int
 }
 
-extension TotalCountWrapper: Decodable {
+extension TotalCountWrapper: Swift.Decodable {
     private enum CodingKeys: String, CodingKey {
         case totalCount
     }
