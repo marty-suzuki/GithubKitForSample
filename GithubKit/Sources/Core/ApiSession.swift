@@ -20,6 +20,16 @@ public final class ApiSession {
         case emptyToken
         case generateBaseURLFaild
     }
+    
+    private class EmptySessionTask: URLSessionTask {
+        override init() {
+            super.init()
+        }
+        
+        override func cancel() {}
+        override func resume() {}
+        override func suspend() {}
+    }
 
     private let session: URLSession
     private let configuration: URLSessionConfiguration
@@ -42,7 +52,7 @@ public final class ApiSession {
             injectableBaseURL = try InjectableBaseURL(string: "https://api.github.com/graphql")
         } catch let e {
             completion(.failure(e))
-            return URLSessionTask()
+            return EmptySessionTask()
         }
 
         let proxy = RequestProxy(request: request, injectableBaseURL: injectableBaseURL, injectableToken: injectableToken)
