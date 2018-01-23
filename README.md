@@ -4,11 +4,11 @@ This is a simple Github API client and UI to use in sample projects.
 
 ## Requirements
 
-- Xcode 9.1
-- Swift 4.0.2
+- Xcode 9.2
+- Swift 4.0.3
 - iOS 9.0
 - carthage 0.23.0
-- [RxSwift](https://github.com/ReactiveX/RxSwift) 4.0.0
+- [RxSwift](https://github.com/ReactiveX/RxSwift) 4.1.1
 - [SwiftIconFont](https://github.com/0x73/SwiftIconFont) 2.7.2
 - [Nuke](https://github.com/kean/Nuke) 5.2
 
