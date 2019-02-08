@@ -16,8 +16,8 @@ public typealias InjectableToken = InjectableToken_<NotReady>
 public struct InjectableToken_<T: Status> {
     private let _token: String
 
-    public static func `init`(token: String) -> InjectableToken {
-        return .init(_token: token)
+    public init(token: String) {
+        self._token = token
     }
 }
 
@@ -26,7 +26,7 @@ extension InjectableToken_ where T == NotReady {
         if _token.isEmpty {
             throw ApiSession.Error.emptyToken
         }
-        return .init(_token: _token)
+        return .init(token: _token)
     }
 }
 

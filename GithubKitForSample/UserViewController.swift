@@ -27,8 +27,6 @@ final class UserViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        automaticallyAdjustsScrollViewInsets = false
-        
         let request = SearchUserRequest(query: "marty", after: nil, limit: 50)
         _ = ApiSession.shared.send(request) { [weak self] in
             switch $0 {

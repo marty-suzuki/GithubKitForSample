@@ -47,7 +47,7 @@ public final class UserViewCell: UITableViewCell, Nibable {
         shared.frame.size.width = tableView.bounds.size.width
         shared.layoutIfNeeded()
         shared.bioLabel.preferredMaxLayoutWidth = shared.bioLabel.bounds.size.width
-        let height = shared.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = shared.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return max(minimumHeight, height)
     }
     
@@ -88,14 +88,17 @@ public final class UserViewCell: UITableViewCell, Nibable {
         return locationContentView
     }()
     
+    private var imageTask: ImageTask?
+    
     public override func prepareForReuse() {
         super.prepareForReuse()
-        Manager.shared.cancelRequest(for: thumbnailImageView)
+        imageTask?.cancel()
+        imageTask = nil
         thumbnailImageView.image = nil
     }
     
     public func configure(with user: User) {
-        Manager.shared.loadImage(with: user.avatarURL, into: thumbnailImageView)
+        imageTask = loadImage(with: user.avatarURL, into: thumbnailImageView)
         userNameLabel.text = user.login
         repositoryCountLabel.text = user.repositoryCount.truncateString
         followingCountLabel.text = user.followingCount.truncateString

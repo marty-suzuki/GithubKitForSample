@@ -20,7 +20,7 @@ extension UILabel {
     }
     
     func setText(as icon: OcticonIcon, ofSize size: CGFloat = 16) {
-        font = .icon(from: .Octicon, ofSize: size)
+        font = .icon(from: .octicon, ofSize: size)
         text = .fontOcticon(icon.rawValue)
     }
 }

@@ -56,7 +56,7 @@ public final class RepositoryViewCell: UITableViewCell, Nibable {
         shared.layoutIfNeeded()
         shared.repositoryNameLabel.preferredMaxLayoutWidth = shared.repositoryNameLabel.bounds.size.width
         shared.descriptionLabel.preferredMaxLayoutWidth = shared.descriptionLabel.bounds.size.width
-        let height = shared.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = shared.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         return max(minimumHeight, height)
     }
     
