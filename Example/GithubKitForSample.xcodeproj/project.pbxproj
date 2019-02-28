@@ -17,14 +17,14 @@
 		9D5419DA1FB08A8F00FA1681 /* ApiSession.shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5419D91FB08A8F00FA1681 /* ApiSession.shared.swift */; };
 		ED57BA2122284230004CD15B /* GithubKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA1F22284229004CD15B /* GithubKit.framework */; };
 		ED57BA2222284230004CD15B /* GithubKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA1F22284229004CD15B /* GithubKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ED57BA272228429E004CD15B /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA232228429E004CD15B /* SwiftIconFont.framework */; };
-		ED57BA282228429E004CD15B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA242228429E004CD15B /* RxCocoa.framework */; };
-		ED57BA292228429E004CD15B /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA252228429E004CD15B /* Nuke.framework */; };
-		ED57BA2A2228429E004CD15B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA262228429E004CD15B /* RxSwift.framework */; };
-		ED57BA2C22284315004CD15B /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA252228429E004CD15B /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ED57BA2E22284315004CD15B /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA242228429E004CD15B /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ED57BA3022284315004CD15B /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA262228429E004CD15B /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ED57BA3222284315004CD15B /* SwiftIconFont.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA232228429E004CD15B /* SwiftIconFont.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED57BA4422284436004CD15B /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA4322284436004CD15B /* Nuke.framework */; };
+		ED57BA4622284436004CD15B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA4522284436004CD15B /* RxCocoa.framework */; };
+		ED57BA4822284436004CD15B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA4722284436004CD15B /* RxSwift.framework */; };
+		ED57BA4A22284436004CD15B /* SwiftIconFont.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA4922284436004CD15B /* SwiftIconFont.framework */; };
+		ED57BA4C2228443E004CD15B /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA4322284436004CD15B /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED57BA4E2228443E004CD15B /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA4522284436004CD15B /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED57BA502228443E004CD15B /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA4722284436004CD15B /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED57BA522228443E004CD15B /* SwiftIconFont.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ED57BA4922284436004CD15B /* SwiftIconFont.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,11 +34,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ED57BA3022284315004CD15B /* RxSwift.framework in Embed Frameworks */,
-				ED57BA2E22284315004CD15B /* RxCocoa.framework in Embed Frameworks */,
+				ED57BA502228443E004CD15B /* RxSwift.framework in Embed Frameworks */,
+				ED57BA4E2228443E004CD15B /* RxCocoa.framework in Embed Frameworks */,
 				ED57BA2222284230004CD15B /* GithubKit.framework in Embed Frameworks */,
-				ED57BA3222284315004CD15B /* SwiftIconFont.framework in Embed Frameworks */,
-				ED57BA2C22284315004CD15B /* Nuke.framework in Embed Frameworks */,
+				ED57BA522228443E004CD15B /* SwiftIconFont.framework in Embed Frameworks */,
+				ED57BA4C2228443E004CD15B /* Nuke.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,17 +53,14 @@
 		37CC40B61F34C2AF0011B065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37CC40B91F34C2AF0011B065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37CC40BB1F34C2AF0011B065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37CC41201F34C73C0011B065 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		37CC41231F34CF020011B065 /* SwiftIconFont.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIconFont.framework; path = Carthage/Build/iOS/SwiftIconFont.framework; sourceTree = "<group>"; };
-		37CC413B1F34D65B0011B065 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		37CC413D1F34D77A0011B065 /* RepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		37CC413E1F34D77A0011B065 /* RepositoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryViewController.xib; sourceTree = "<group>"; };
 		9D5419D91FB08A8F00FA1681 /* ApiSession.shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSession.shared.swift; sourceTree = "<group>"; };
 		ED57BA1F22284229004CD15B /* GithubKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GithubKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED57BA232228429E004CD15B /* SwiftIconFont.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftIconFont.framework; path = ../Carthage/Build/iOS/SwiftIconFont.framework; sourceTree = "<group>"; };
-		ED57BA242228429E004CD15B /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		ED57BA252228429E004CD15B /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = ../Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
-		ED57BA262228429E004CD15B /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		ED57BA4322284436004CD15B /* Nuke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED57BA4522284436004CD15B /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED57BA4722284436004CD15B /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED57BA4922284436004CD15B /* SwiftIconFont.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftIconFont.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED57BA272228429E004CD15B /* SwiftIconFont.framework in Frameworks */,
-				ED57BA282228429E004CD15B /* RxCocoa.framework in Frameworks */,
-				ED57BA292228429E004CD15B /* Nuke.framework in Frameworks */,
-				ED57BA2A2228429E004CD15B /* RxSwift.framework in Frameworks */,
+				ED57BA4422284436004CD15B /* Nuke.framework in Frameworks */,
+				ED57BA4622284436004CD15B /* RxCocoa.framework in Frameworks */,
+				ED57BA4822284436004CD15B /* RxSwift.framework in Frameworks */,
+				ED57BA4A22284436004CD15B /* SwiftIconFont.framework in Frameworks */,
 				ED57BA2122284230004CD15B /* GithubKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,14 +115,11 @@
 		37CC411F1F34C73C0011B065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ED57BA252228429E004CD15B /* Nuke.framework */,
-				ED57BA242228429E004CD15B /* RxCocoa.framework */,
-				ED57BA262228429E004CD15B /* RxSwift.framework */,
-				ED57BA232228429E004CD15B /* SwiftIconFont.framework */,
+				ED57BA4322284436004CD15B /* Nuke.framework */,
+				ED57BA4522284436004CD15B /* RxCocoa.framework */,
+				ED57BA4722284436004CD15B /* RxSwift.framework */,
+				ED57BA4922284436004CD15B /* SwiftIconFont.framework */,
 				ED57BA1F22284229004CD15B /* GithubKit.framework */,
-				37CC413B1F34D65B0011B065 /* Nuke.framework */,
-				37CC41231F34CF020011B065 /* SwiftIconFont.framework */,
-				37CC41201F34C73C0011B065 /* RxSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
