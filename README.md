@@ -19,6 +19,13 @@ You can install via Carthage.
 ```ruby: Cartfile
 github "marty-suzuki/GithubKitForSample"
 ```
+
+You can install via Cocoapods.
+
+```ruby: Cartfile
+pod 'GithubKitForSample', :git => 'https://github.com/marty-suzuki/GithubKitForSample.git'
+```
+
 ## Usage
 
 ```swift
