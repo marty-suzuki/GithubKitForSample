@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "37CC40F91F34C6BB0011B065"
+               BlueprintIdentifier = "ED57B9D522284035004CD15B"
                BuildableName = "GithubKit.framework"
                BlueprintName = "GithubKit"
-               ReferencedContainer = "container:GithubKitForSample.xcodeproj">
+               ReferencedContainer = "container:GithubKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "37CC40F91F34C6BB0011B065"
+            BlueprintIdentifier = "ED57B9D522284035004CD15B"
             BuildableName = "GithubKit.framework"
             BlueprintName = "GithubKit"
-            ReferencedContainer = "container:GithubKitForSample.xcodeproj">
+            ReferencedContainer = "container:GithubKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "37CC40F91F34C6BB0011B065"
+            BlueprintIdentifier = "ED57B9D522284035004CD15B"
             BuildableName = "GithubKit.framework"
             BlueprintName = "GithubKit"
-            ReferencedContainer = "container:GithubKitForSample.xcodeproj">
+            ReferencedContainer = "container:GithubKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
