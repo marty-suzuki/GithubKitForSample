@@ -13,8 +13,6 @@ Pod::Spec.new do |s|
   s.framework = "UIKit"
   s.source_files = "GithubKit/Sources/**/*.{swift}"
   s.resources = "GithubKit/Sources/**/*.{xib}"
-  s.dependency 'RxSwift', '~> 4.0'
-  s.dependency 'RxCocoa', '~> 4.0'
   s.dependency 'SwiftIconFont', '~> 3.0'
   s.dependency 'Nuke', '~> 7.0'
 end
