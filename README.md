@@ -22,6 +22,14 @@ You can install via Cocoapods.
 pod 'GithubKitForSample', :git => 'https://github.com/marty-suzuki/GithubKitForSample.git'
 ```
 
+You can install via Swift Package Manager.
+
+Simply add the following line to your `Package.swift`:
+
+```
+.package(url: "https://github.com/marty-suzuki/GithubKitForSample.git", from: "version")
+```
+
 ## Usage
 
 ```swift
