@@ -4,13 +4,9 @@ This is a simple Github API client and UI to use in sample projects.
 
 ## Requirements
 
-- Xcode 10.1
-- Swift 4.2
-- iOS 11.0
-- carthage 0.31.2
-- [RxSwift](https://github.com/ReactiveX/RxSwift) 4.4.0
-- [SwiftIconFont](https://github.com/0x73/SwiftIconFont) 3.0.0
-- [Nuke](https://github.com/kean/Nuke) 7.5.2
+- Xcode 12
+- Swift 5
+- iOS 13.0
 
 ## Installation
 
@@ -63,3 +59,6 @@ ApiSession.shared.send(request) {
 
 ### RepositoryViewCell
 ![repository](./Images/image2.png)
+
+## Special Thanks
+- https://primer.style/octicons/
