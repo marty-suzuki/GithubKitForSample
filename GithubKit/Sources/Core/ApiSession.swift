@@ -7,6 +7,7 @@
 //
 
 import Combine
+import Foundation
 
 public final class ApiSession {
 
