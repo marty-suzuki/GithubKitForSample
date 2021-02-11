@@ -3,32 +3,17 @@
 //  GithubApiSession
 //
 //  Created by marty-suzuki on 2017/08/01.
-//  Copyright © 2017年 marty-suzuki. All rights reserved.
+//  Copyright © 2021年 marty-suzuki. All rights reserved.
 //
 
-import Foundation
-import RxSwift
+import Combine
 
 public final class ApiSession {
-    public enum Result<T> {
-        case success(T)
-        case failure(Swift.Error)
-    }
 
     public enum Error: Swift.Error {
         case emptyData
         case emptyToken
         case generateBaseURLFaild
-    }
-    
-    private class EmptySessionTask: URLSessionTask {
-        override init() {
-            super.init()
-        }
-        
-        override func cancel() {}
-        override func resume() {}
-        override func suspend() {}
     }
 
     private let session: URLSession
@@ -43,59 +28,57 @@ public final class ApiSession {
         self.injectToken = injectToken
     }
 
-    public func send<T: Request>(_ request: T, completion: @escaping (Result<T.ResponseType>) -> ()) -> URLSessionTask {
+    public func send<T: Request>(
+        _ request: T,
+        completion: @escaping (Result<T.ResponseType, Swift.Error>) -> ()
+    ) -> AnyCancellable {
+        send(request)
+            .sink(
+                receiveCompletion: { result in
+                    switch result {
+                    case .finished:
+                        return
+                    case let .failure(error):
+                        completion(.failure(error))
+                    }
+                },
+                receiveValue: { value in
+                    completion(.success(value))
+                }
+            )
+    }
+
+    public func send<T: Request>(_ request: T) -> AnyPublisher<T.ResponseType, Swift.Error> {
 
         let injectableToken: InjectableToken_<Ready>
         let injectableBaseURL: InjectableBaseURL
         do {
             injectableToken = try injectToken().readify()
             injectableBaseURL = try InjectableBaseURL(string: "https://api.github.com/graphql")
-        } catch let e {
-            completion(.failure(e))
-            return EmptySessionTask()
+        } catch {
+            return Fail(error: error).eraseToAnyPublisher()
         }
 
         let proxy = RequestProxy(request: request, injectableBaseURL: injectableBaseURL, injectableToken: injectableToken)
         let urlRequest = proxy.buildURLRequest()
-        let task = session.dataTask(with: urlRequest) { data, _, error in
-            if let error = error {
-                completion(.failure(error))
-                return
+        return session.dataTaskPublisher(for: urlRequest)
+            .flatMap { data, _ -> AnyPublisher<Data, URLError> in
+                Just(data)
+                    .catch { _ -> AnyPublisher<Data, URLError> in }
+                    .eraseToAnyPublisher()
             }
-            guard let data = data else {
-                completion(.failure(Error.emptyData))
-                return
+            .catch { error -> AnyPublisher<Data, Swift.Error> in
+                Fail(error: error).eraseToAnyPublisher()
             }
-            do {
-                try completion(.success(T.decode(with: data)))
-            } catch let e {
-                completion(.failure(e))
-            }
-        }
-        task.resume()
-        return task
-    }
-}
-
-extension ApiSession: ReactiveCompatible {}
-
-extension Reactive where Base == ApiSession {
-    public func send<T: Request>(_ request: T) -> Observable<T.ResponseType> {
-        return Single<T.ResponseType>.create { [weak session = base] observer in
-            guard let session = session else {
-                return Disposables.create()
-            }
-            let task = session.send(request) {
-                switch $0 {
-                case .success(let value):
-                    observer(.success(value))
-                case .failure(let error):
-                    observer(.error(error))
+            .flatMap { data -> AnyPublisher<T.ResponseType, Swift.Error> in
+                do {
+                    return try Just(T.decode(with: data))
+                        .catch { _ -> AnyPublisher<T.ResponseType, Swift.Error> in }
+                        .eraseToAnyPublisher()
+                } catch {
+                    return Fail(error: error).eraseToAnyPublisher()
                 }
             }
-            return Disposables.create {
-                task.cancel()
-            }
-        }.asObservable()
+            .eraseToAnyPublisher()
     }
 }

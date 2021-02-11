@@ -3,7 +3,7 @@
 //  GithubApiSession
 //
 //  Created by marty-suzuki on 2017/08/01.
-//  Copyright © 2017年 marty-suzuki. All rights reserved.
+//  Copyright © 2021年 marty-suzuki. All rights reserved.
 //
 
 import Foundation

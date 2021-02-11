@@ -7,17 +7,4 @@
    <FileRef
       location = "group:../GithubKit.xcodeproj">
    </FileRef>
-   <Group
-      location = "container:"
-      name = "Dependencies">
-      <FileRef
-         location = "group:../Carthage/Checkouts/SwiftIconFont/SwiftIconFont.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:../Carthage/Checkouts/RxSwift/Rx.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:../Carthage/Checkouts/Nuke/Nuke.xcodeproj">
-      </FileRef>
-   </Group>
 </Workspace>

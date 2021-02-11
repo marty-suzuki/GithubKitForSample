@@ -3,12 +3,12 @@
 //  GithubApiSession
 //
 //  Created by marty-suzuki on 2017/08/01.
-//  Copyright © 2017年 marty-suzuki. All rights reserved.
+//  Copyright © 2021年 marty-suzuki. All rights reserved.
 //
 
 import Foundation
 
-public struct User {
+public struct User: Hashable {
     public let id: String
     public let avatarURL: URL
     public let followerCount: Int

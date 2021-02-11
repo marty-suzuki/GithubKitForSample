@@ -3,11 +3,12 @@
 //  GithubKitForSample
 //
 //  Created by marty-suzuki on 2017/08/04.
-//  Copyright © 2017年 marty-suzuki. All rights reserved.
+//  Copyright © 2021年 marty-suzuki. All rights reserved.
 //
 
-import UIKit
+import Combine
 import GithubKit
+import UIKit
 
 final class UserViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +20,8 @@ final class UserViewController: UIViewController {
             }
         }
     }
+
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +31,14 @@ final class UserViewController: UIViewController {
         tableView.delegate = self
         
         let request = SearchUserRequest(query: "marty", after: nil, limit: 50)
-        _ = ApiSession.shared.send(request) { [weak self] in
+        ApiSession.shared.send(request) { [weak self] in
             switch $0 {
             case .success(let value):
                 self?.users = value.nodes
             case .failure(let error):
                 print(error)
             }
-        }
+        }.store(in: &cancellables)
     }
 }
 

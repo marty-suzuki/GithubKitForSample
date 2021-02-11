@@ -3,12 +3,13 @@
 //  GithubKitForSample
 //
 //  Created by marty-suzuki on 2017/08/05.
-//  Copyright © 2017年 marty-suzuki. All rights reserved.
+//  Copyright © 2021年 marty-suzuki. All rights reserved.
 //
 
-import UIKit
+import Combine
 import GithubKit
 import SafariServices
+import UIKit
 
 final class RepositoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +22,8 @@ final class RepositoryViewController: UIViewController {
         }
     }
     private let user: User
+
+    private var cancellables = Set<AnyCancellable>()
     
     init(user: User) {
         self.user = user
@@ -39,14 +42,14 @@ final class RepositoryViewController: UIViewController {
         tableView.delegate = self
         
         let request = UserNodeRequest(id: user.id, after: nil)
-        _ = ApiSession.shared.send(request) { [weak self] in
+        ApiSession.shared.send(request) { [weak self] in
             switch $0 {
             case .success(let value):
                 self?.repositories = value.nodes
             case .failure(let error):
                 print(error)
             }
-        }
+        }.store(in: &cancellables)
     }
 }
 
